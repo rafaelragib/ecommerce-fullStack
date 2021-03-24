@@ -4,10 +4,8 @@ import {ShoppingCart} from '@material-ui/icons'
 import useStyles from './styles'
 import logo from '../../assets/apple-touch-icon.png'
 
-const Navbar = () => {
+const Navbar = ({itemCount}) => {
     const classes= useStyles();
-
-    const totalItems=3;
 
     return (
         <>
@@ -20,7 +18,7 @@ const Navbar = () => {
                 <div className={classes.grow}/>
                                     <div className={classes.button}>
                     <IconButton aria-label="Show cart items" color="inherit">
-                        <Badge badgeContent={totalItems } color="secondary">
+                        <Badge badgeContent={itemCount } color="secondary">
                             <ShoppingCart/>
                         </Badge>
                     </IconButton>

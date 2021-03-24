@@ -4,7 +4,7 @@ import Product from './Product/Product'
 import useStyles from './styles'
 
 
-const Products = () => {
+const Products = ({addItem}) => {
     
     const [products,setProducts]=useState([{
         id:"1",
@@ -17,13 +17,8 @@ const Products = () => {
             media:require('../../assets/banner-02.jpg'),
             price:'15$'}]);
     
-    const [cartItems,setCartItems]=useState([]);
     
-    const addItem= (id) => 
-    {
-        setCartItems(arr=>[...arr,id]);
-    }
-    console.log(cartItems);
+    //console.log(cartItems);
     const classes= useStyles();
     return (
         <main className={classes.content}>

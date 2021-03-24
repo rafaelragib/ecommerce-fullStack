@@ -4,11 +4,16 @@ import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 
 const App= ()=> 
 {
-
+  const [cartItems,setCartItems]=useState([]);
+    
+    const addItem= (id) => 
+    {
+        setCartItems(arr=>[...arr,id]);
+    }
   return (
     <div>
-      <Navbar/>
-      <Products/>
+      <Navbar itemCount={cartItems.length}/>
+      <Products addItem={addItem}/>
    </div>
   );
 }
