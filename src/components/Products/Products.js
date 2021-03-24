@@ -1,11 +1,29 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {Grid} from '@material-ui/core'
 import Product from './Product/Product'
 import useStyles from './styles'
 
 
-const Products = ({products,onAddToCart}) => {
-
+const Products = () => {
+    
+    const [products,setProducts]=useState([{
+        id:"1",
+        name:'test1',
+        media:require('../../assets/big-img-02.jpg'),
+        price:'10$'},
+        {
+            id:"2",
+            name:'test2',
+            media:require('../../assets/banner-02.jpg'),
+            price:'15$'}]);
+    
+    const [cartItems,setCartItems]=useState([]);
+    
+    const addItem= (id) => 
+    {
+        setCartItems(arr=>[...arr,id]);
+    }
+    console.log(cartItems);
     const classes= useStyles();
     return (
         <main className={classes.content}>
@@ -14,7 +32,7 @@ const Products = ({products,onAddToCart}) => {
             {products.map((product)=>
             (
                 <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-                <Product product={product} onAddToCart={onAddToCart}  />
+                <Product product={product} addItem={addItem}  />
                 </Grid>
             ))}
             </Grid>
